@@ -1,10 +1,12 @@
 from flask import Flask, url_for
+from prometheus_flask_exporter import PrometheusMetrics
 import time
 import socket
 
 app = Flask(__name__,
             static_url_path='',
             static_folder='static')
+metrics = PrometheusMetrics(app)
 
 
 @app.route("/")
